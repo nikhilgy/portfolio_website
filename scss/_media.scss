@@ -1,0 +1,201 @@
+//Tablets & Smaller
+@media (max-width: 800px) and (min-width: 500px) {
+  #header-home {
+    height: 30rem;
+
+    .header-content {
+      padding-top: 5rem;
+    }
+  }
+  .container {
+    margin: 0 0.5rem;
+  }
+  #main-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  #logo {
+    width: 20rem;
+    text-align: center;
+  }
+}
+
+//Smartphones
+@media (max-width: 500px) {
+  .container {
+    margin: 0.5rem;
+  }
+  #header-home {
+    height: 100vh;
+    background: $bg-image no-repeat center center/cover;
+
+    .header-content {
+      padding-top: 5rem;
+      h1 {
+        font-size: 5rem;
+      }
+      p {
+        font-size: 3rem;
+      }
+    }
+  }
+  #main-nav {
+    .menu-icon {
+      display: block;
+
+      &__line {
+        animation: closeMid 0.8s backwards;
+        animation-direction: reverse;
+
+        &::before {
+          animation: closedTop 0.8s backwards;
+          animation-direction: reverse;
+        }
+        &::after {
+          animation: closedBtm 0.8s backwards;
+          animation-direction: reverse;
+        }
+      }
+    }
+
+    .nav-links {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem 0;
+      width: 100vw;
+      height: 100vh;
+      font-size: 2rem;
+      color: #fff;
+      background: #272727;
+      transition: opacity 0.8s 0.2s, clip-path 1s 0.2s;
+      clip-path: circle(100px at top right);
+
+      .nav-link {
+        opacity: 0;
+        transform: translateX(100%);
+        width: 100%;
+        text-align: center;
+        padding: 0.5rem;
+
+        a {
+          display: block;
+          padding: 2rem 0;
+        }
+      }
+    }
+
+    .menu-btn:checked ~ .nav-links {
+      opacity: 1;
+      clip-path: circle(100% at center);
+
+      .nav-link {
+        opacity: 1;
+        transform: translateX(0);
+        transition: opacity 0.4s ease-in-out 1s,
+          transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
+
+        &:nth-of-type(1) {
+          transition-delay: 0.7s;
+        }
+        &:nth-of-type(2) {
+          transition-delay: 0.8s;
+        }
+        &:nth-of-type(3) {
+          transition-delay: 0.9s;
+        }
+        &:nth-of-type(4) {
+          transition-delay: 1s;
+        }
+      }
+    }
+    #logo {
+      font-size: 1rem;
+    }
+  }
+
+  //About Me Section
+
+  #home-d {
+    .bio {
+      display: grid;
+      grid-gap: 1.3rem;
+      grid-template-rows: repeat(1, 1fr);
+      //   margin: 0 auto;
+
+      .bio-image {
+        grid-area: image;
+      }
+      .bio-content {
+        grid-area: text;
+      }
+      grid-template-areas:
+        "image"
+        "text";
+    }
+  }
+
+  #home-a {
+    .icons {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 0.2rem;
+
+      img {
+        height: 70px;
+        width: 70px;
+      }
+    }
+  }
+
+  #projects {
+    .projects-content {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  #contact {
+    .card {
+      padding: 10rem;
+    }
+  }
+
+  #main-footer {
+    height: 10rem;
+    .footer-content {
+      display: grid;
+      grid-template-rows: repeat(1, 1fr);
+      grid-gap: 1rem;
+
+      p {
+        font-size: 1.2rem;
+      }
+      .social {
+        display: flex;
+        margin: 0 2rem;
+      }
+    }
+  }
+}
+//Change Hamburger to Cross
+// .menu-btn:checked {
+//   .menu-icon__line {
+//     background: #fff;
+//     animation: openMid 0.8s forwards;
+
+//     &::before {
+//       background: #fff;
+//       animation: openTop 0.8s forwards;
+//     }
+//     &::after {
+//       background: #fff;
+//       animation: openBtm 0.8s forwards;
+//     }
+//   }
+// }
